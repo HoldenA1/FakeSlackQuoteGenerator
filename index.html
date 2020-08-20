@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>Generate Fake Slack Quote to Trick Your Friends!</title>
+
+</head>
+
+<body>
+
+    <h1>Fake Slack Quote Generator</h1>
+
+    <p>This is a simple website that allows you to create realistic looking screenshots of slack that are totally fake. This product should solely be used for fun. Don't do something that could get you or me sued.</p>
+
+    <form name="myForm">
+        <label for="name">Slack name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="quote">Quote:</label><br>
+        <textarea rows = "5" cols = "60" id="quote" name="quote"></textarea><br><br>
+        <label for="bgcolor">Select your slack background color:</label>
+        <input type="color" id="bgcolor" name="bgcolor" value="#ffffff"><br><br>
+        <label for="txtcolor">Select your slack text color:</label>
+        <input type="color" id="txtcolor" name="txtcolor" value="#000000"><br><br>
+        <label for="img">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*"><br><br>
+        <input type="button" value="Submit" onclick="createQuoteElement()" />
+    </form>
+
+    <div id="quoteContainer">
+    </div>
+
+</body>
+
+<script>
+    function createQuoteElement() {
+        var img = document.forms["myForm"]["img"].files[0];
+        var imgElement = document.createElement("img");
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            imgElement.setAttribute("src", reader.result);
+        };
+        if (img) {
+            reader.readAsDataURL(img);
+        } else {
+            imgElement.setAttribute("src", "");
+        }
+        imgElement.setAttribute("width", "50");
+        imgElement.setAttribute("height", "50");
+
+        var name = document.createTextNode(document.forms["myForm"]["name"].value);
+        var nameElement = document.createElement("span");
+        nameElement.appendChild(name);
+
+        var today = new Date();
+        var letters = "PM";
+        if (today.getHours() < 12) {
+            letters = "AM";
+        }
+        var zero = "";
+        if (today.getMinutes() < 10) {
+            zero = "0";
+        }
+        var time = today.getHours()%12 + ":" + zero + today.getMinutes() + " " + letters;
+        var timeElement = document.createElement("span");
+        timeElement.appendChild(document.createTextNode(time));
+
+        var div = document.createElement("div");
+        div.appendChild(imgElement);
+        div.appendChild(nameElement);
+        div.appendChild(timeElement);
+
+        var quote = document.createTextNode(document.forms["myForm"]["quote"].value);
+        var quoteElement = document.createElement("p");
+        quoteElement.appendChild(quote);
+
+        var bgColor = document.forms["myForm"]["bgcolor"].value;
+
+        var txtColor = document.forms["myForm"]["txtcolor"].value;
+
+        var container = document.getElementById("quoteContainer");
+        container.style.backgroundColor = bgColor;
+        container.style.color = txtColor;
+        container.appendChild(div);
+        container.appendChild(quoteElement);
+    };
+</script>
+
+</html>
