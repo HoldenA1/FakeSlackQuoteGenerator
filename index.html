@@ -30,8 +30,10 @@
         <input type="color" id="bgcolor" name="bgcolor" value="#ffffff"><br><br>
         <label for="txtcolor">Select your slack text color:</label>
         <input type="color" id="txtcolor" name="txtcolor" value="#000000"><br><br>
-        <label for="img">Select image:</label>
-        <input type="file" id="img" name="img" accept="image/*"><br><br>
+        <label for="profilePic">Select profile picture:</label>
+        <input type="file" id="profilePic" name="profilePic" accept="image/*"><br><br>
+        <label for="status">Select slack status:</label>
+        <input type="file" id="status" name="status" accept="image/*"><br><br>
         <input type="button" value="Submit" onclick="createPreview()" />
     </form>
 
@@ -42,16 +44,16 @@
         <div id="previewContainer">
 
             <div id="picContainer">
-                <img id="profilePic">
+                <img id="previewPic">
             </div>
 
             <div id="quoteContainer">
                 <div>
                     <span id="previewName"></span>
+                    <img id="previewStatus">
                     <span id="time"></span>
                 </div>
-                <p id="previewQuote">
-                </p>
+                <p id="previewQuote"></p>
             </div>
 
         </div><br>

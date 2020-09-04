@@ -13,7 +13,7 @@ body {
     flex: 0 0 80px;
 }
 
-#profilePic {
+#previewPic {
     height: 60px;
     width: 60px;
     border-radius: 10px;
@@ -30,13 +30,18 @@ body {
 #previewQuote {
     font-size: 20px;
     margin-top: 5px;
-    width: 400px;
+    max-width: 400px;
     word-wrap: break-word;
 }
 
 #previewName {
     font-size: 22px;
     font-weight: 900;
+}
+
+#previewStatus {
+    height: 16px;
+    width: 16px;
 }
 
 #time {

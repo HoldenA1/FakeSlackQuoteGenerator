@@ -1,14 +1,27 @@
 function createPreview() {
-    var img = document.forms["myForm"]["img"].files[0];
-    var imgElement = document.getElementById("profilePic");
-    var reader = new FileReader();
-    reader.onloadend = function () {
-        imgElement.setAttribute("src", reader.result);
+    var profilePic = document.forms["myForm"]["profilePic"].files[0];
+    var profilePicElement = document.getElementById("previewPic");
+    var profReader = new FileReader();
+    profReader.onloadend = function () {
+        profilePicElement.setAttribute("src", profReader.result);
     };
-    if (img) {
-        reader.readAsDataURL(img);
+    if (profilePic) {
+        profReader.readAsDataURL(profilePic);
     } else {
-        imgElement.setAttribute("src", "");
+        profilePicElement.setAttribute("src", "");
+    }
+
+    var status = document.forms["myForm"]["status"].files[0];
+    var statusElement = document.getElementById("previewStatus");
+    var statReader = new FileReader();
+    statReader.onloadend = function () {
+        statusElement.setAttribute("src", statReader.result);
+    };
+    if (status) {
+        statusElement.setAttribute("style", "visibility: visible; width: 16px;");
+        statReader.readAsDataURL(status);
+    } else {
+        statusElement.setAttribute("style", "visibility: hidden; width: 0px;");
     }
 
     var name = document.createTextNode(document.forms["myForm"]["name"].value);
