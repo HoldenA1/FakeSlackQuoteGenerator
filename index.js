@@ -1,6 +1,6 @@
-function createQuoteElement() {
+function createPreview() {
     var img = document.forms["myForm"]["img"].files[0];
-    var imgElement = document.createElement("img");
+    var imgElement = document.getElementById("profilePic");
     var reader = new FileReader();
     reader.onloadend = function () {
         imgElement.setAttribute("src", reader.result);
@@ -10,11 +10,14 @@ function createQuoteElement() {
     } else {
         imgElement.setAttribute("src", "");
     }
-    imgElement.setAttribute("width", "50");
-    imgElement.setAttribute("height", "50");
 
     var name = document.createTextNode(document.forms["myForm"]["name"].value);
-    var nameElement = document.createElement("span");
+    var nameElement = document.getElementById("previewName");
+    // Removes old text
+    while (nameElement.firstChild) {
+        nameElement.removeChild(nameElement.lastChild);
+    }
+    // Adds new text
     nameElement.appendChild(name);
 
     var today = new Date();
@@ -27,25 +30,60 @@ function createQuoteElement() {
         zero = "0";
     }
     var time = today.getHours()%12 + ":" + zero + today.getMinutes() + " " + letters;
-    var timeElement = document.createElement("span");
+    var timeElement = document.getElementById("time");
+    // Removes old text
+    while (timeElement.firstChild) {
+        timeElement.removeChild(timeElement.lastChild);
+    }
+    // Adds new text
     timeElement.appendChild(document.createTextNode(time));
 
-    var div = document.createElement("div");
-    div.appendChild(imgElement);
-    div.appendChild(nameElement);
-    div.appendChild(timeElement);
-
     var quote = document.createTextNode(document.forms["myForm"]["quote"].value);
-    var quoteElement = document.createElement("p");
+    var quoteElement = document.getElementById("previewQuote");
+    // Removes old text
+    while (quoteElement.firstChild) {
+        quoteElement.removeChild(quoteElement.lastChild);
+    }
+    // Adds new text
     quoteElement.appendChild(quote);
 
     var bgColor = document.forms["myForm"]["bgcolor"].value;
 
     var txtColor = document.forms["myForm"]["txtcolor"].value;
 
-    var container = document.getElementById("quoteContainer");
+    var container = document.getElementById("previewContainer");
     container.style.backgroundColor = bgColor;
     container.style.color = txtColor;
-    container.appendChild(div);
-    container.appendChild(quoteElement);
+
+    // Unhides outputContainer
+    document.getElementById("outputContainer").setAttribute("style", "visibility: visible;");
+
+    setTimeout(() => { 
+        html2canvas(document.querySelector("#previewContainer")).then(canvas => {
+            var capture = canvas.toDataURL("image/png");
+            console.log(capture);
+
+            // Start file download.
+            document.getElementById("dl").addEventListener("click", function(){
+                // Generate download
+                var filename = "quote.png";
+                
+                download(filename, capture);
+            }, false);
+        });
+    }, 100);
+
 };
+
+function download(filename, cap) {
+    var element = document.createElement('a');
+    element.setAttribute('href', cap);
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}

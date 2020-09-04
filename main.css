@@ -1,0 +1,46 @@
+body {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+}
+
+#previewContainer {
+    margin-top: 20px;
+    display: flex;
+}
+
+#picContainer {
+    flex: 0 0 80px;
+}
+
+#profilePic {
+    height: 60px;
+    width: 60px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#quoteContainer {
+    font-family: 'Lato';
+    flex: 1;
+    margin: 10px;
+    margin-bottom: 0px;
+}
+
+#previewQuote {
+    font-size: 20px;
+    margin-top: 5px;
+    width: 400px;
+    word-wrap: break-word;
+}
+
+#previewName {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+#time {
+    margin-left: 5px;
+    font-size: 16px;
+    color: grey;
+}
