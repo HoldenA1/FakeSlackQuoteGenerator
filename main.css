@@ -1,7 +1,8 @@
 :root {
     --ff-default: 'Montserrat';
     --ff-quote: 'Lato';
-    --font-size: 18px;
+    --font-size: 1.2rem;
+    --github-logo-size: 2.0rem;
 
     --max-width: 770px;
     --padding: 60px;
@@ -9,6 +10,7 @@
 
     --primary-text-color: white;
     --secondary-text-color: #8D8D8D;
+    --tertiary-color: #717171;
     --bg-color: #333333;
 }
 
@@ -54,8 +56,48 @@ header p {
     position: absolute;
     top: 0;
     right: 0;
-    font-size: 30px;
+    font-size: var(--github-logo-size);
     color: var(--primary-text-color);
+}
+
+.text-in {
+    background: var(--tertiary-color);
+    border: 1.25px solid transparent;
+    border-radius: 5px;
+    font-size: var(--font-size);
+    padding: 5px 15px;
+    color: var(--primary-text-color);
+    width: 100%;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+
+.text-in:hover {
+    border: 1.25px dotted var(--primary-text-color);
+}
+
+.text-in:focus {
+    outline: none;
+    border: 1.25px solid var(--primary-text-color);
+}
+
+.button {
+    background: var(--primary-text-color);
+    border: 1.25px solid transparent;
+    border-radius: 5px;
+    font-size: var(--font-size);
+    padding: 5px 15px;
+    color: var(--bg-color);
+}
+
+.button:hover, .button:focus {
+    outline: none;
+    opacity: 0.8;
+    transition: 0.2s opacity ease-in-out;
+}
+
+.button-submit {
+    width: 100%;
 }
 
 #previewContainer {

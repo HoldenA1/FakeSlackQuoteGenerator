@@ -32,32 +32,32 @@
 
     <form name="myForm">
         <div class="form-field">
-            <label for="formName">Slack name:</label>
+            <label for="formName">Slack name</label>
             <br>
-            <input type="text" id="name" name="name">
+            <input type="text" class="text-in" id="name" name="name">
         </div>
         <div class="form-field">
-            <label for="formQuote">Quote:</label>
+            <label for="formQuote">Quote</label>
             <br>
-            <textarea rows = "5" cols = "40" id="quote" name="quote"></textarea>
+            <textarea rows="5" class="text-in" id="quote" name="quote"></textarea>
         </div>
         <div class="form-field">
-            <label for="bgcolor">Select your slack background color:</label>
-            <input type="color" id="bgcolor" name="bgcolor" value="#ffffff">
+            <label for="bgcolor">Select your slack background color</label>
+            <input type="color" class="button" id="bgcolor" name="bgcolor" value="#ffffff">
         </div>
         <div class="form-field">
-            <label for="txtcolor">Select your slack text color:</label>
-            <input type="color" id="txtcolor" name="txtcolor" value="#000000">
+            <label for="txtcolor">Select your slack text color</label>
+            <input type="color" class="button" id="txtcolor" name="txtcolor" value="#000000">
         </div>
         <div class="form-field">
-            <label for="profilePic">Select profile picture:</label>
+            <label for="profilePic">Select profile picture</label>
             <input type="file" id="profilePic" name="profilePic" accept="image/*">
         </div>
         <div class="form-field">
-            <label for="status">Select slack status:</label>
+            <label for="status">Select slack status</label>
             <input type="file" id="status" name="status" accept="image/*">
         </div>
-        <input type="button" value="Submit" onclick="createPreview()" />
+        <input type="button" class="button button-submit" value="Submit" onclick="createPreview()" />
     </form>
 
     <div id="outputContainer" style="visibility: hidden;">
@@ -81,7 +81,7 @@
 
         </div><br>
 
-        <input type="button" id="dl" value="Download"/>
+        <input type="button" class="button button-submit" id="dl" value="Download"/>
 
     </div>
 
