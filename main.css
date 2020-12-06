@@ -1,8 +1,61 @@
+:root {
+    --ff-default: 'Montserrat';
+    --ff-quote: 'Lato';
+    --font-size: 18px;
+
+    --max-width: 770px;
+    --padding: 60px;
+    --margin: 24px;
+
+    --primary-text-color: white;
+    --secondary-text-color: #8D8D8D;
+    --bg-color: #333333;
+}
+
+@media (max-width: 800px) {
+    :root {
+        --padding: 30px;
+    }
+}
+
+h1 {
+    font-size: var(--font-size);
+    font-weight: normal;
+    margin: 0;
+}
+
 body {
+    color: var(--primary-text-color);
+    font-family: var(--ff-default);
+    padding: var(--padding);
+    font-size: var(--font-size);
+    margin: 0;
     margin-left: auto;
     margin-right: auto;
-    padding: 10px;
-    max-width: 500px;
+    max-width: var(--max-width);
+    background-color: var(--bg-color);
+}
+
+header {
+    position: relative;
+}
+
+header p {
+    color: var(--secondary-text-color);
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
+}
+
+.form-field {
+    margin-bottom: var(--margin);
+}
+
+.social-media-meta-element {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    color: var(--primary-text-color);
 }
 
 #previewContainer {
@@ -22,7 +75,7 @@ body {
 }
 
 #quoteContainer {
-    font-family: 'Lato';
+    font-family: var(--ff-quote);
     flex: 1;
     margin: 10px;
     margin-bottom: 0px;

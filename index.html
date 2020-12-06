@@ -10,6 +10,8 @@
     
     <link rel="stylesheet" type="text/css" href="main.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="/FakeSlackQuoteGenerator/favicon.ico">
 
     <title>Generate Fake Slack Quotes to Trick Your Friends!</title>
@@ -18,23 +20,43 @@
 
 <body>
 
-    <h1>Fake Slack Quote Generator</h1>
+    <header>
+        <h1>Fake Slack Quote Generator</h1>
 
-    <p>This is a simple website that allows you to create realistic looking screenshots of slack that are totally fake. This product should solely be used for fun. Don't do something that could get you or me sued.</p>
+        <a class="social-media-meta-element" href="https://github.com/HoldenA1/FakeSlackQuoteGenerator">
+            <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
+
+        <p>This is a simple website that allows you to create realistic looking screenshots of slack that are totally fake. This product should solely be used for fun. Don't do something that could get you or me sued.</p>
+    </header>
 
     <form name="myForm">
-        <label for="formName">Slack name:</label><br>
-        <input type="text" id="name" name="name"><br>
-        <label for="formQuote">Quote:</label><br>
-        <textarea rows = "5" cols = "40" id="quote" name="quote"></textarea><br><br>
-        <label for="bgcolor">Select your slack background color:</label>
-        <input type="color" id="bgcolor" name="bgcolor" value="#ffffff"><br><br>
-        <label for="txtcolor">Select your slack text color:</label>
-        <input type="color" id="txtcolor" name="txtcolor" value="#000000"><br><br>
-        <label for="profilePic">Select profile picture:</label>
-        <input type="file" id="profilePic" name="profilePic" accept="image/*"><br><br>
-        <label for="status">Select slack status:</label>
-        <input type="file" id="status" name="status" accept="image/*"><br><br>
+        <div class="form-field">
+            <label for="formName">Slack name:</label>
+            <br>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form-field">
+            <label for="formQuote">Quote:</label>
+            <br>
+            <textarea rows = "5" cols = "40" id="quote" name="quote"></textarea>
+        </div>
+        <div class="form-field">
+            <label for="bgcolor">Select your slack background color:</label>
+            <input type="color" id="bgcolor" name="bgcolor" value="#ffffff">
+        </div>
+        <div class="form-field">
+            <label for="txtcolor">Select your slack text color:</label>
+            <input type="color" id="txtcolor" name="txtcolor" value="#000000">
+        </div>
+        <div class="form-field">
+            <label for="profilePic">Select profile picture:</label>
+            <input type="file" id="profilePic" name="profilePic" accept="image/*">
+        </div>
+        <div class="form-field">
+            <label for="status">Select slack status:</label>
+            <input type="file" id="status" name="status" accept="image/*">
+        </div>
         <input type="button" value="Submit" onclick="createPreview()" />
     </form>
 
