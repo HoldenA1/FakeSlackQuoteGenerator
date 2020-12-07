@@ -11,17 +11,19 @@ function createPreview() {
         profilePicElement.setAttribute("src", "");
     }
 
+    // Time element is created here to put the status before it
+    var timeElement = document.getElementById("time");
     var status = document.forms["myForm"]["status"].files[0];
-    var statusElement = document.getElementById("previewStatus");
+    var heading = document.getElementById("heading"); 
+    var statusElement = document.createElement("img");
     var statReader = new FileReader();
     statReader.onloadend = function () {
         statusElement.setAttribute("src", statReader.result);
     };
     if (status) {
-        statusElement.setAttribute("style", "visibility: visible; width: 16px;");
+        statusElement.setAttribute("style", "width: 16px;");
         statReader.readAsDataURL(status);
-    } else {
-        statusElement.setAttribute("style", "visibility: hidden; width: 0px;");
+        heading.insertBefore(statusElement, timeElement);
     }
 
     var name = document.createTextNode(document.forms["myForm"]["name"].value);
@@ -43,7 +45,6 @@ function createPreview() {
         zero = "0";
     }
     var time = today.getHours()%12 + ":" + zero + today.getMinutes() + " " + letters;
-    var timeElement = document.getElementById("time");
     // Removes old text
     while (timeElement.firstChild) {
         timeElement.removeChild(timeElement.lastChild);
@@ -70,33 +71,26 @@ function createPreview() {
 
     // Unhides outputContainer
     document.getElementById("outputContainer").setAttribute("style", "visibility: visible;");
-
-    setTimeout(() => { 
-        html2canvas(document.querySelector("#previewContainer")).then(canvas => {
-            var capture = canvas.toDataURL("image/png");
-            console.log(capture);
-
-            // Start file download.
-            document.getElementById("dl").addEventListener("click", function(){
-                // Generate download
-                var filename = "quote.png";
-                
-                download(filename, capture);
-            }, false);
-        });
-    }, 100);
-
 };
 
-function download(filename, cap) {
-    var element = document.createElement('a');
-    element.setAttribute('href', cap);
-    element.setAttribute('download', filename);
+async function download() {
+    window.scrollTo(0,0);
+    await html2canvas(document.querySelector("#previewContainer")).then(canvas => {
+        // Generate photo
+        var capture = canvas.toDataURL("image/png");
 
-    element.style.display = 'none';
-    document.body.appendChild(element);
+        // Generate download link
+        var filename = "quote.png";
+        
+        var element = document.createElement('a');
+        element.setAttribute('href', capture);
+        element.setAttribute('download', filename);
 
-    element.click();
+        element.style.display = 'none';
+        document.body.appendChild(element);
 
-    document.body.removeChild(element);
+        element.click();
+
+        document.body.removeChild(element);
+    });
 }

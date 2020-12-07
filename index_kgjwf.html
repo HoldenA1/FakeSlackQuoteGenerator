@@ -60,23 +60,23 @@
     </form>
 
     <div id="outputContainer" style="visibility: hidden;">
-        <h1 id="previewTitle">Preview</h1>
+        <h2 id="previewTitle">Preview:</h2>
         <div id="previewContainer">
-            <div style="display: flex;">
-                <div id="picContainer">
-                    <img id="previewPic">
+            <div id="picContainer">
+                <img id="previewPic">
+            </div>
+            <div id="quoteContainer">
+                <div>
+                    <span id="previewName"></span>
+                    <img id="previewStatus">
+                    <span id="time"></span>
                 </div>
-                <div id="quoteContainer">
-                    <div id="heading">
-                        <span id="previewName"></span>
-                        <span id="time"></span>
-                    </div>
-                    <p id="previewQuote"></p>
-                </div>
+                <p id="previewQuote"></p>
             </div>
         </div><br>
         <button class="button button-submit" onclick="download()">Download</button>
     </div>
+
 </body>
 
 </html>

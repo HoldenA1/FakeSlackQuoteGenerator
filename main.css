@@ -98,11 +98,12 @@ header p {
 
 .button-submit {
     width: 100%;
+    margin-bottom: var(--margin);
 }
 
 #previewContainer {
-    margin-top: 20px;
-    display: flex;
+    margin-bottom: var(--margin);
+    display: inline-block;
 }
 
 #picContainer {
@@ -117,6 +118,7 @@ header p {
 }
 
 #quoteContainer {
+    max-width: 400px;
     font-family: var(--ff-quote);
     flex: 1;
     margin: 10px;
@@ -126,7 +128,6 @@ header p {
 #previewQuote {
     font-size: 20px;
     margin-top: 5px;
-    max-width: 400px;
     word-wrap: break-word;
 }
 
