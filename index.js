@@ -74,8 +74,12 @@ function createPreview() {
 };
 
 async function download() {
-    window.scrollTo(0,0);
-    await html2canvas(document.querySelector("#previewContainer")).then(canvas => {
+    await html2canvas(document.querySelector("#previewContainer"), {
+        scrollX: -window.scrollX,
+        scrollY: -window.scrollY,
+        width: document.getElementById("previewContainer").offsetWidth-1,
+        windowWidth: document.documentElement.offsetWidth
+    }).then(canvas => {
         // Generate photo
         var capture = canvas.toDataURL("image/png");
 
