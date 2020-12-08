@@ -1,12 +1,12 @@
 var cacheName = 'quotes-gen-pwa';
 var databaseName = 'quotes-app-data'
 var filesToCache = [
-    '/',
-    '/index.html',
-    '/favicon.ico',
-    '/manifest.json',
-    '/images/favicon-96x96.png',
-    '/main.css'
+    '/FakeSlackQuoteGenerator/',
+    '/FakeSlackQuoteGenerator/index.html',
+    '/FakeSlackQuoteGenerator/favicon.ico',
+    '/FakeSlackQuoteGenerator/manifest.json',
+    '/FakeSlackQuoteGenerator/images/favicon-96x96.png',
+    '/FakeSlackQuoteGenerator/main.css'
 ];
 
 // Start the service worker and cache all of the app's content
