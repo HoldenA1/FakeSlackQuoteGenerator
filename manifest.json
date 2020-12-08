@@ -1,0 +1,30 @@
+{
+    "name": "Fake Slack Quote Generator",
+    "short_name": "QuotesGen",
+    "icons": [{
+        "src": "images/apple-icon-57x57.png",
+        "sizes": "57x57",
+        "type": "image/png"
+      }, {
+        "src": "images/favicon-96x96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      }, {
+        "src": "images/apple-icon-144x144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }, {
+        "src": "images/apple-icon-152x152.png",
+        "sizes": "152x152",
+        "type": "image/png"
+      }, {
+        "src": "images/android-icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }],
+    "lang": "en-US",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#333333",
+    "theme_color": "#333333"
+}

@@ -2,21 +2,29 @@
 <html lang="en">
 
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="index.js"></script>
-    <script src="html2canvas.min.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/html2canvas.min.js"></script>
     
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-    <link rel="icon" href="/FakeSlackQuoteGenerator/favicon.ico">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-icon-152x152.png">
+    <meta name="theme-color" content="#333333"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Fake Slack Quote Generator">
+    <meta name="msapplication-TileImage" content="images/ms-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#333333">
+    <meta name="Description" content="An app for creating fake slack quotes to trick your friends.">
+    
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Generate Fake Slack Quotes to Trick Your Friends!</title>
-
 </head>
 
 <body>
@@ -78,5 +86,8 @@
         <button class="button button-submit" onclick="download()">Download</button>
     </div>
 </body>
+
+<!-- Load the service worker -->
+<script src="./js/main.js"></script>
 
 </html>
