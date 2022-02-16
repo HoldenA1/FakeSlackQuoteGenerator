@@ -4,4 +4,5 @@ window.onload = () => {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/FakeSlackQuoteGenerator/sw.js');
     }
+    updateTime()
 }
