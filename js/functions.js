@@ -1,3 +1,18 @@
+function updateTime() {    
+    var today = new Date();
+    var letters = "PM";
+    if (today.getHours() < 12) {
+        letters = "AM";
+    }
+    var zero = "";
+    if (today.getMinutes() < 10) {
+        zero = "0";
+    }    
+    
+    var time = today.getHours()%12 + ":" + zero + today.getMinutes() + " " + letters;
+    document.forms["myForm"]["time"].value = time
+}
+
 function createPreview() {
     var profilePic = document.forms["myForm"]["profilePic"].files[0];
     var profilePicElement = document.getElementById("previewPic");
@@ -12,7 +27,7 @@ function createPreview() {
     }
 
     // Time element is created here to put the status before it
-    var timeElement = document.getElementById("time");
+    var timeElement = document.getElementById("previewTime");
     var status = document.forms["myForm"]["status"].files[0];
     var heading = document.getElementById("heading"); 
     var statusElement = document.createElement("img");
@@ -44,7 +59,8 @@ function createPreview() {
     if (today.getMinutes() < 10) {
         zero = "0";
     }
-    var time = today.getHours()%12 + ":" + zero + today.getMinutes() + " " + letters;
+    
+    var time = document.forms["myForm"]["time"].value
     // Removes old text
     while (timeElement.firstChild) {
         timeElement.removeChild(timeElement.lastChild);
