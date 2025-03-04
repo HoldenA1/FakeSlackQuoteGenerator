@@ -41,25 +41,25 @@
         <div class="form-field">
             <label for="formName">Slack name</label>
             <br>
-            <input type="text" class="text-in" id="name" name="name">
+            <input type="text" id="name" name="name">
         </div>
         <div class="form-field">
             <label for="formQuote">Quote</label>
             <br>
-            <textarea rows="5" class="text-in" id="quote" name="quote"></textarea>
+            <textarea rows="5" id="quote" name="quote"></textarea>
         </div>
         <div class="form-field">
             <label for="formTime">Time</label>
             <br>
-            <input type="text" class="text-in" id="time" name="time">
+            <input type="text" id="time" name="time">
         </div>
         <div class="form-field">
             <label for="bgcolor">Select your slack background color</label>
-            <input type="color" class="button" id="bgcolor" name="bgcolor" value="#ffffff">
+            <input type="color" id="bgcolor" name="bgcolor" value="#ffffff">
         </div>
         <div class="form-field">
             <label for="txtcolor">Select your slack text color</label>
-            <input type="color" class="button" id="txtcolor" name="txtcolor" value="#000000">
+            <input type="color" id="txtcolor" name="txtcolor" value="#000000">
         </div>
         <div class="form-field">
             <label for="profilePic">Select profile picture</label>
@@ -69,7 +69,7 @@
             <label for="status">Select slack status</label>
             <input type="file" id="status" name="status" accept="image/*">
         </div>
-        <input type="button" class="button button-submit" value="Submit" onclick="createPreview()" />
+        <button type="button" onclick="createPreview()">Submit</button>
     </form>
 
     <div id="outputContainer" style="visibility: hidden;">
@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div><br>
-        <button class="button button-submit" onclick="download()">Download</button>
+        <button type="button" onclick="download()">Download</button>
     </div>
 </body>
 
